@@ -58,6 +58,7 @@ INSERT INTO WatchHistory (WatchID, UserID, MovieID, WatchDate, WatchDuration) VA
 --Requirement
 
 --Beginner Level 
+
 --1 Total Number of Users 
 SELECT COUNT(*) AS 'Total Student' FROM Users;
 -- 2. Average Duration of All Movies 
@@ -108,3 +109,23 @@ SELECT M.Genre, SUM(WH.WatchDuration) AS TotalWatchTime
 FROM WatchHistory WH
 JOIN Movies M ON WH.MovieID = M.MovieID
 GROUP BY M.Genre;
+-- 10. Identify Binge Watchers (Users Who Watched 2 or More Movies in One Day) 
+SELECT U.FullName, WH.WatchDate, COUNT(*) AS MoviesWatched
+FROM WatchHistory WH
+JOIN Users U ON WH.UserID = U.UserID
+GROUP BY U.FullName, WH.WatchDate
+HAVING COUNT(*) >= 2
+ORDER BY WH.WatchDate;
+-- 11. Genre Popularity (Total Watch Duration by Genre) 
+SELECT M.Genre, SUM(WH.WatchDuration) AS TotalDuration
+FROM WatchHistory WH
+JOIN Movies M ON WH.MovieID = M.MovieID
+GROUP BY M.Genre
+ORDER BY TotalDuration DESC;
+-- 12. User Retention Insight: Number of Users Joined Each Month
+SELECT 
+  JoinDate AS JoinMonth,
+  COUNT(*) AS NewUsers
+FROM Users
+GROUP BY JoinDate
+ORDER BY JoinMonth;
