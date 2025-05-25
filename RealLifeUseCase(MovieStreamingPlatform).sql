@@ -54,3 +54,19 @@ INSERT INTO WatchHistory (WatchID, UserID, MovieID, WatchDate, WatchDuration) VA
 (3, 3, 5, '2025-05-16', 108),
 (4, 4, 4, '2025-05-17', 95),
 (5, 5, 1, '2025-05-18', 100);
+
+--Requirement
+
+--Beginner Level 
+--1 Total Number of Users 
+SELECT COUNT(*) AS 'Total Student' FROM Users;
+-- 2. Average Duration of All Movies 
+SELECT AVG(DurationMinutes) AS 'Average Duration' FROM Movies;
+-- 3. Total Watch Time 
+SELECT SUM(WatchDuration) AS 'Total Duration' FROM WatchHistory;
+-- 4. Number of Movies per Genre 
+SELECT COUNT(MovieID) as 'Number of Movies', Genre FROM Movies GROUP BY Genre
+-- 5. Earliest User Join Date 
+SELECT MAX(JoinDate) AS 'Earliest User Join Date' FROM Users
+-- 6. Latest Movie Release Year 
+ SELECT MIN(JoinDate) AS 'Earliest User Join Date' FROM Users
