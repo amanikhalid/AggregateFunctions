@@ -39,3 +39,10 @@ INSERT INTO Users (UserID, FullName, Email, JoinDate, SubscriptionType) VALUES
 (4, 'Majid Al Nabhani', 'majid@example.com', '2024-04-10', 'Premium'),
 (5, 'Aisha Al Siyabi', 'aisha@example.com', '2024-05-05', 'Free');
 
+--Movies
+INSERT INTO Movies (MovieID, Title, Genre, ReleaseYear, DurationMinutes) VALUES
+(1, 'Desert Mirage', 'Adventure', 2023, 115),
+(2, 'Voices of Oman', 'Documentary', 2021, 95),
+(3, 'Speed Surge', 'Action', 2024, 125),
+(4, 'Debug Diaries', 'Comedy', 2023, 100),
+(5, 'Final Echo', 'Mystery', 2022, 108);
