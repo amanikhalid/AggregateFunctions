@@ -79,3 +79,13 @@ SELECT COUNT(UserID) as 'Number of Users', SubscriptionType FROM Users GROUP BY 
 SELECT SUM(WatchDuration) AS 'Total Watch Time' ,UserID FROM WatchHistory GROUP BY UserID;
 -- 6. Average Watch Duration per Movie 
 SELECT AVG(WatchDuration) AS 'Average Duration' , MovieID FROM WatchHistory GROUP BY MovieID;
+-- 7. Average Watch Time per Subscription Type 
+SELECT AVG(W.WatchDuration) as 'Average Watch Time', U.SubscriptionType FROM Users U INNER JOIN WatchHistory W ON W.UserID= U.UserID
+GROUP BY SubscriptionType
+-- 8. Number of Views per Movie (Including Zero) 
+SELECT * FROM Movies
+SELECT * FROM Users
+SELECT * FROM WatchHistory
+SELECT COUNT(WatchID) AS 'Number of Views' , MovieID FROM WatchHistory GROUP BY MovieID 
+-- 9. Average Movie Duration per Release Year 
+ SELECT AVG(DurationMinutes)AS 'Average Movie Duration' FROM Movies GROUP BY ReleaseYear
