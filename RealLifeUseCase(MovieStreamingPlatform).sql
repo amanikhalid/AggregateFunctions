@@ -70,3 +70,12 @@ SELECT COUNT(MovieID) as 'Number of Movies', Genre FROM Movies GROUP BY Genre
 SELECT MAX(JoinDate) AS 'Earliest User Join Date' FROM Users
 -- 6. Latest Movie Release Year 
  SELECT MIN(JoinDate) AS 'Earliest User Join Date' FROM Users
+
+-- Intermediate Level 
+
+-- 4. Number of Users Per Subscription Type 
+SELECT COUNT(UserID) as 'Number of Users', SubscriptionType FROM Users GROUP BY SubscriptionType
+-- 5. Total Watch Time per User 
+SELECT SUM(WatchDuration) AS 'Total Watch Time' ,UserID FROM WatchHistory GROUP BY UserID;
+-- 6. Average Watch Duration per Movie 
+SELECT AVG(WatchDuration) AS 'Average Duration' , MovieID FROM WatchHistory GROUP BY MovieID;
