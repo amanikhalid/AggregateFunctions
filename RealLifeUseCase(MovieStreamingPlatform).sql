@@ -46,3 +46,11 @@ INSERT INTO Movies (MovieID, Title, Genre, ReleaseYear, DurationMinutes) VALUES
 (3, 'Speed Surge', 'Action', 2024, 125),
 (4, 'Debug Diaries', 'Comedy', 2023, 100),
 (5, 'Final Echo', 'Mystery', 2022, 108);
+
+--Watch History
+INSERT INTO WatchHistory (WatchID, UserID, MovieID, WatchDate, WatchDuration) VALUES
+(1, 1, 2, '2025-05-15', 90),
+(2, 2, 3, '2025-05-16', 110),
+(3, 3, 5, '2025-05-16', 108),
+(4, 4, 4, '2025-05-17', 95),
+(5, 5, 1, '2025-05-18', 100);
