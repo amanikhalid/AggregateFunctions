@@ -89,3 +89,22 @@ SELECT * FROM WatchHistory
 SELECT COUNT(WatchID) AS 'Number of Views' , MovieID FROM WatchHistory GROUP BY MovieID 
 -- 9. Average Movie Duration per Release Year 
  SELECT AVG(DurationMinutes)AS 'Average Movie Duration' FROM Movies GROUP BY ReleaseYear
+
+-- Advanced Level 
+
+-- 7. Most Watched Movie 
+SELECT  M.Title, COUNT(*) AS WatchCount
+FROM WatchHistory WH
+JOIN Movies M ON WH.MovieID = M.MovieID
+GROUP BY M.Title
+-- 8. Users Who Watched More Than 100 Minutes 
+SELECT U.FullName, SUM(WH.WatchDuration) AS TotalWatchTime
+FROM WatchHistory WH
+JOIN Users U ON WH.UserID = U.UserID
+GROUP BY U.FullName
+HAVING SUM(WH.WatchDuration) > 100;
+-- 9. Total Watch Time per Genre 
+SELECT M.Genre, SUM(WH.WatchDuration) AS TotalWatchTime
+FROM WatchHistory WH
+JOIN Movies M ON WH.MovieID = M.MovieID
+GROUP BY M.Genre;
