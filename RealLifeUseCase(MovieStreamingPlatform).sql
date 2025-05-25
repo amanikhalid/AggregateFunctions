@@ -12,3 +12,12 @@ Email VARCHAR(100),
 JoinDate DATE,
 SubscriptionType VARCHAR(20)  -- Free, Basic, Premium
 );
+
+create table Movies (
+MovieID INT PRIMARY KEY,
+Title VARCHAR(100),
+Genre VARCHAR(50),
+ReleaseYear INT,
+DurationMinutes INT
+);
+
