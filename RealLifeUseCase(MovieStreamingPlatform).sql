@@ -21,3 +21,10 @@ ReleaseYear INT,
 DurationMinutes INT
 );
 
+create table WatchHistory (
+WatchID INT PRIMARY KEY,
+UserID INT FOREIGN KEY REFERENCES Users(UserID),
+MovieID INT FOREIGN KEY REFERENCES Movies(MovieID),
+WatchDate DATE,
+WatchDuration INT -- in minutes
+);
